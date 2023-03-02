@@ -47,8 +47,8 @@ namespace VentasWeb.Controllers
                                                  NombreProducto = dv.NombreProducto,
                                                  PrecioUnidad = dv.PrecioUnidad,
                                                  TextoPrecioUnidad = dv.PrecioUnidad.ToString("N", formato), //numero.ToString("C", formato)
-                                                 ImporteTotal = dv.ImporteTotal,
-                                                 TextoImporteTotal = dv.ImporteTotal.ToString("N", formato)
+                                           //      ImporteTotal = dv.ImporteTotal,
+                                                // TextoImporteTotal = dv.ImporteTotal.ToString("N", formato)
                                              }).ToList();
 
                 oVenta.TextoImporteRecibido = oVenta.ImporteRecibido.ToString("N", formato);

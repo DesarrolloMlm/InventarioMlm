@@ -12,7 +12,7 @@ namespace CapaModelo
         public string NombreProducto { get; set; }
         public float PrecioUnidad { get; set; }
         public string TextoPrecioUnidad { get; set; }
-        public float ImporteTotal { get; set; }
-        public string TextoImporteTotal { get; set; }
+         public float ImporteTotal { get; set; }
+         public string TextoImporteTotal { get; set; }
     }
 }

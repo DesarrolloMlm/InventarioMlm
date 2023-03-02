@@ -10,3 +10,9 @@ C:\Users\Gonza\Desktop\VentasWeb\CapaModelo\obj\Debug\CapaModelo.csprojAssemblyR
 C:\Users\Gonza\Desktop\VentasWeb\CapaModelo\obj\Debug\CapaModelo.csproj.CoreCompileInputs.cache
 C:\Users\Gonza\Desktop\VentasWeb\CapaModelo\obj\Debug\CapaModelo.dll
 C:\Users\Gonza\Desktop\VentasWeb\CapaModelo\obj\Debug\CapaModelo.pdb
+C:\Codigo Git\InventarioMuni\Codigo\VentasWeb\CapaModelo\bin\Debug\CapaModelo.dll
+C:\Codigo Git\InventarioMuni\Codigo\VentasWeb\CapaModelo\bin\Debug\CapaModelo.pdb
+C:\Codigo Git\InventarioMuni\Codigo\VentasWeb\CapaModelo\obj\Debug\CapaModelo.csproj.CoreCompileInputs.cache
+C:\Codigo Git\InventarioMuni\Codigo\VentasWeb\CapaModelo\obj\Debug\CapaModelo.dll
+C:\Codigo Git\InventarioMuni\Codigo\VentasWeb\CapaModelo\obj\Debug\CapaModelo.pdb
+C:\Codigo Git\InventarioMuni\Codigo\VentasWeb\CapaModelo\obj\Debug\CapaModelo.csprojAssemblyReference.cache

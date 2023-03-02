@@ -10,6 +10,7 @@ $(document).ready(function () {
             nombres: "required",
             direccion: "required",
             telefono: "required"
+            
         },
         messages: {
             nombres: "(*)",

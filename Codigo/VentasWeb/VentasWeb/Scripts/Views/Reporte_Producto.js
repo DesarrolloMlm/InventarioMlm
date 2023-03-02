@@ -96,7 +96,7 @@ function printData() {
 
 
     newWin.document.write(style);
-    newWin.document.write("<h3>Reporte de insumos por sector</h3>");
+    newWin.document.write("<h3>Reporte de insumos por oficina</h3>");
     newWin.document.write(divToPrint.outerHTML);
     newWin.print();
     newWin.close();

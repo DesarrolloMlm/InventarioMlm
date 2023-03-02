@@ -112,8 +112,9 @@ function ObtenerFecha() {
     var month = d.getMonth() + 1;
     var day = d.getDate();
     var output = (('' + day).length < 2 ? '0' : '') + day + '/' + (('' + month).length < 2 ? '0' : '') + month + '/' + d.getFullYear();
-
-    return output;
+    
+    return $("#txtFechaInicio").val();
+    
 }
 
 function printData() {

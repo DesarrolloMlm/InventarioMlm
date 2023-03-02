@@ -1,12 +1,13 @@
 ﻿var tablaproducto;
 var tablacliente;
+var tablaSector;
 
 
 $(document).ready(function () {
 
     activarMenu("Ventas");
     $("#txtproductocantidad").val("0");
-    $("#txtfechaventa").val(ObtenerFecha());
+    $("#txtfechaventa").val("");
 
 
     //OBTENER PROVEEDORES
@@ -19,7 +20,7 @@ $(document).ready(function () {
             //TIENDA
             $("#txtIdTienda").val(data.oTienda.IdTienda);
             $("#lbltiendanombre").text(data.oTienda.Nombre);
-            $("#lbltiendaruc").text(data.oTienda.RUC);
+            $("#lbltiendaruc").val(data.oTienda.IdTienda);
             $("#lbltiendadireccion").text(data.oTienda.Direccion);
 
             //USUARIO
@@ -88,7 +89,7 @@ $(document).ready(function () {
                 "data": "IdCliente", "render": function (data, type, row, meta) {
                     return "<button class='btn btn-sm btn-primary ml-2' type='button' onclick='clienteSelect(" + JSON.stringify(row) + ")'><i class='fas fa-check'></i></button>"
                 },
-                "orderable": false,
+                "orderable": true,
                 "searchable": false,
                 "width": "90px"
             },
@@ -103,6 +104,59 @@ $(document).ready(function () {
         responsive: true
     });
 
+    
+    // AGREGADO PARA BUSCAR SECTOR
+    tablaSectorr = $('#tbSetorr').DataTable({
+        "ajax": {
+            "url": $.MisUrls.url._ObtenerTiendas,
+            "type": "GET",
+            "datatype": "json"
+        },
+        "columns": [
+            {
+                "data": "RUC", "render": function (data, type, row, meta) {
+                    return "<button class='btn btn-sm btn-primary ml-2' type='button' onclick='sectorrSelect(" + JSON.stringify(row) + ")'><i class='fas fa-check'></i></button>"
+                },
+                "orderable": false,
+                "searchable": false,
+                "width": "90px"
+            },
+             { "data": "RUC" },
+            { "data": "Nombre" },
+            { "data": "Direccion" },
+            {"data":"Telefono"}
+        ],
+        "language": {
+            "url": $.MisUrls.url.Url_datatable_spanish
+        },
+        responsive: true
+    });
+    tablaSector = $('#tbSetor').DataTable({
+        "ajax": {
+            "url": $.MisUrls.url._ObtenerTiendas,
+            "type": "GET",
+            "datatype": "json"
+        },
+        "columns": [
+            {
+                "data": "RUC", "render": function (data, type, row, meta) {
+                    return "<button class='btn btn-sm btn-primary ml-2' type='button' onclick='sectorSelect(" + JSON.stringify(row) + ")'><i class='fas fa-check'></i></button>"
+                },
+                "orderable": false,
+                "searchable": false,
+                "width": "90px"
+            },
+            { "data": "RUC" },
+            { "data": "Nombre" },
+            { "data": "Direccion" },
+            { "data": "Telefono" }
+        ],
+        "language": {
+            "url": $.MisUrls.url.Url_datatable_spanish
+        },
+        responsive: true
+    });
+    
 })
 
 function ObtenerFecha() {
@@ -111,8 +165,11 @@ function ObtenerFecha() {
     var month = d.getMonth() + 1;
     var day = d.getDate();
     var output = (('' + day).length < 2 ? '0' : '') + day + '/' + (('' + month).length < 2 ? '0' : '') + month + '/' + d.getFullYear();
-
+    console.log("Fecha obtenida");
+    console.log(output);
     return output;
+
+
 }
 
 
@@ -142,9 +199,12 @@ $("#txtmontopago").inputFilter(function (value) {
 $('#btnBuscarProducto').on('click', function () {
 
   
-    tablaproducto.ajax.url($.MisUrls.url._ObtenerProductoStockPorTienda + "?IdTienda=" + parseInt($("#txtIdTienda").val()) ).load();
-
+    tablaproducto.ajax.url($.MisUrls.url._ObtenerProductoStockPorTienda + "?IdTienda=" + parseInt($("#lbltiendaruc").val())).load();
+    $("#txtproductocantidad").val(1);
+    $("#txtmontopago").val(1);
     $('#modalProducto').modal('show');
+    calcularCambio();//09/02
+   
 })
 
 $('#btnBuscarCliente').on('click', function () {
@@ -154,6 +214,22 @@ $('#btnBuscarCliente').on('click', function () {
     $('#modalCliente').modal('show');
 })
 
+$('#btnBuscarDestino').on('click', function () {
+    
+    //tablacliente.ajax.reload();
+    tablaSector.ajax.reload()
+
+    $('#modalSector').modal('show');
+})
+
+$('#btnBuscarDestinoo').on('click', function () {
+
+    //tablacliente.ajax.reload();
+    tablaSectorr.ajax.reload()
+
+    $('#modalSectorr').modal('show');
+})
+
 function productoSelect(json) {
     $("#txtIdProducto").val(json.oProducto.IdProducto);
     $("#txtproductocodigo").val(json.oProducto.Codigo);
@@ -161,7 +237,7 @@ function productoSelect(json) {
     $("#txtproductodescripcion").val(json.oProducto.Descripcion);
     $("#txtproductostock").val(json.Stock);
     $("#txtproductoprecio").val(json.PrecioUnidadVenta);
-    $("#txtproductocantidad").val("0");
+    $("#txtproductocantidad").val("1");
     $('#modalProducto').modal('hide');
 }
 
@@ -174,6 +250,28 @@ function clienteSelect(json) {
     $("#txtclientetelefono").val(json.Telefono);
     $('#modalCliente').modal('hide');
 }
+
+function sectorSelect(json) {
+
+
+    //$("#cboclientetipodocumento").val(json.IdTienda);
+    $("#lbltiendanombre").val(json.Nombre);
+    $("#lbltiendaruc").val(json.IdTienda);
+    $("#lbltiendadireccion").val(json.Direccion);
+    $('#modalSector').modal('hide');
+    $('#modalSector').modal('hide');
+}
+function sectorrSelect(json) {
+
+
+    //$("#cboclientetipodocumento").val(json.IdTienda);
+    $("#lblempleadonombre").val(json.Nombre);
+    $("#lblempleadoapellido").val(json.IdTienda);
+    $("#lblempleadocorreo").val(json.Direccion);
+    $('#modalSectorr').modal('hide');
+    $('#modalSectorr').modal('hide');
+}
+
 
 $("#txtproductocodigo").on('keypress', function (e) {
 
@@ -271,8 +369,8 @@ $('#btnAgregar').on('click', function () {
             $("<td>").addClass("productocantidad").text($("#txtproductocantidad").val()),
             $("<td>").addClass("producto").data("idproducto", $("#txtIdProducto").val()).text($("#txtproductonombre").val()),
             $("<td>").text($("#txtproductodescripcion").val()),
-            $("<td>").addClass("productoprecio").text($("#txtproductoprecio").val()),
-            $("<td>").addClass("importetotal").text(importetotal)
+         //   $("<td>").addClass("productoprecio").text($("#txtproductoprecio").val()),
+        //    $("<td>").addClass("importetotal").text(importetotal)
         ).appendTo("#tbVenta tbody");
 
         $("#txtIdProducto").val("0");
@@ -285,7 +383,7 @@ $('#btnAgregar').on('click', function () {
 
         $("#txtproductocodigo").focus();
 
-        calcularPrecios();
+        //calcularPrecios();
     } else {
         swal("Mensaje", "El producto ya existe en la venta", "warning")
     }
@@ -315,10 +413,10 @@ $('#btnTerminarGuardarVenta').on('click', function () {
     }
 
     //VALIDACIONES DE MONTO PAGO
-    if ($("#txtmontopago").val().trim() == "") {
-        swal("Mensaje", "Ingrese el monto de pago", "warning");
-        return;
-    }
+  //  if ($("#txtmontopago").val().trim() == "") {
+   //     swal("Mensaje", "Ingrese el monto de pago", "warning");
+    //    return;
+    //}
 
     var $totalproductos = 0;
     var $totalimportes = 0;
@@ -329,17 +427,45 @@ $('#btnTerminarGuardarVenta').on('click', function () {
     var DETALLE_VENTA = "";
     var DATOS_VENTA = "";
 
-    calcularCambio();
+    //calcularCambio();
 
     $('#tbVenta > tbody  > tr').each(function (index, tr) {
         var fila = tr;
-        var productocantidad = parseInt($(fila).find("td.productocantidad").text());
+        /*var productocantidad = parseInt($(fila).find("td.productocantidad").text());
         var idproducto = $(fila).find("td.producto").data("idproducto");
         var productoprecio = parseFloat($(fila).find("td.productoprecio").text());
         var importetotal = parseFloat($(fila).find("td.importetotal").text());
+        */
 
+        var idproducto = $(fila).find("td.producto").data("idproducto");
+        var productoprecio = 1;
+        var importetotal = 1;
+        var productocantidad = 1;
         $totalproductos = $totalproductos + productocantidad;
         $totalimportes = $totalimportes + importetotal;
+
+        var FechaRegistro = new Date();
+       
+        
+        var dateControl = new Date();
+        var dateAux = new Date(2022 - 10 - 10);
+       dateControl = document.getElementById("txtfechaventa");
+        
+        console.log(dateControl.value);
+        //console.log(dateControl.value.month); 
+        //console.log(dateControl.day);
+        //console.log(dateControl.getFullYear)
+      /*  
+        console.log(dateControl.getDay());
+        console.log(dateControl.getMonth());
+       console.log(dateControl.getFullYear());
+        */
+        FechaRegistro = ObtenerFecha();
+            console.log(FechaRegistro.value);
+        
+        
+           
+
 
         DATOS_VENTA = DATOS_VENTA + "<DATOS>" +
             "<IdVenta>0</IdVenta >" +
@@ -347,12 +473,15 @@ $('#btnTerminarGuardarVenta').on('click', function () {
             "<Cantidad>" + productocantidad + "</Cantidad>" +
             "<PrecioUnidad>" + productoprecio + "</PrecioUnidad>" +
             "<ImporteTotal>" + importetotal + "</ImporteTotal>" +
+            "<FechaRegistro>" + FechaRegistro+"</FechaRegistro>"+
             "</DATOS>"
     });
+    var FechaRegistro = new Date();
 
+    FechaRegistro = document.getElementById("txtfechaventa");
 
     VENTA = "<VENTA>" +
-        "<IdTienda>" + $("#txtIdTienda").val() + "</IdTienda>" +
+        "<IdTienda>" + $("#lbltiendaruc").val() + "</IdTienda>" +
         "<IdUsuario>" + $("#txtIdUsuario").val() + "</IdUsuario>" +
         "<IdCliente>0</IdCliente>" +
         "<TipoDocumento>" + $("#cboventatipodocumento").val() + "</TipoDocumento>" +
@@ -361,8 +490,14 @@ $('#btnTerminarGuardarVenta').on('click', function () {
         "<TotalCosto>" + $totalimportes + "</TotalCosto>" +
         "<ImporteRecibido>" + $("#txtmontopago").val() + "</ImporteRecibido>" +
         "<ImporteCambio>" + $("#txtcambio").val() + "</ImporteCambio>" +
+        "<FechaRegistro>" + FechaRegistro.value + "</FechaRegistro>" +
         "</VENTA >";
-
+   
+    DETALLE_OFICINA_DESTINO = "<DETALLE_OFICINA_DESTINO><DATOS>" +
+        "<IdTienda > " + $("#lblempleadoapellido").val() + "</IdTienda > " +
+        "</DATOS ></DETALLE_OFICINA_DESTINO>";
+       
+  
     DETALLE_CLIENTE = "<DETALLE_CLIENTE><DATOS>" +
         "<TipoDocumento>" + $("#cboclientetipodocumento").val() + "</TipoDocumento>" +
         "<NumeroDocumento>" + $("#txtclientedocumento").val() + "</NumeroDocumento>" +
@@ -373,8 +508,14 @@ $('#btnTerminarGuardarVenta').on('click', function () {
 
     DETALLE_VENTA = "<DETALLE_VENTA>" + DATOS_VENTA + "</DETALLE_VENTA>";
 
-    DETALLE = "<DETALLE>" + VENTA + DETALLE_CLIENTE + DETALLE_VENTA + "</DETALLE>"
+    DETALLE = "<DETALLE>" + VENTA + DETALLE_CLIENTE + DETALLE_VENTA + DETALLE_OFICINA_DESTINO +"</DETALLE>"
 
+    FechaRegistro = document.getElementById("txtfechaventa");
+    
+
+    console.log(FechaRegistro.value);
+
+ 
 
     var request = { xml: DETALLE };
 
@@ -387,7 +528,7 @@ $('#btnTerminarGuardarVenta').on('click', function () {
         success: function (data) {
 
             $(".card-venta").LoadingOverlay("hide");
-
+            
             if (data.estado) {
                 //DOCUMENTO
                 $("#cboventatipodocumento").val("Boleta");
@@ -398,6 +539,7 @@ $('#btnTerminarGuardarVenta').on('click', function () {
                 $("#txtclientenombres").val("");
                 $("#txtclientedireccion").val("");
                 $("#txtclientetelefono").val("");
+                
 
 
                 //PRODUCTO
@@ -410,11 +552,11 @@ $('#btnTerminarGuardarVenta').on('click', function () {
                 $("#txtproductocantidad").val("0");
 
                 //PRECIOS
-                $("#txtsubtotal").val("0");
-                $("#txtigv").val("0");
-                $("#txttotal").val("0");
-                $("#txtmontopago").val("");
-                $("#txtcambio").val("");
+              //  $("#txtsubtotal").val("0");
+               // $("#txtigv").val("0");
+               // $("#txttotal").val("0");
+                //$("#txtmontopago").val("");
+                //$("#txtcambio").val("");
 
 
                 $("#tbVenta tbody").html("");
@@ -442,12 +584,12 @@ $('#btnTerminarGuardarVenta').on('click', function () {
 })
 
 function calcularCambio() {
-    var montopago = $("#txtmontopago").val().trim() == "" ? 0 : parseFloat($("#txtmontopago").val().trim());
+   /* var montopago = $("#txtmontopago").val().trim() == "" ? 0 : parseFloat($("#txtmontopago").val().trim());
     var totalcosto = parseFloat($("#txttotal").val().trim());
     var cambio = 0;
     cambio = (montopago <= totalcosto ? totalcosto : montopago) - totalcosto;
-
-    $("#txtcambio").val(cambio.toFixed(2));
+    */
+    $("#txtcambio").val(1);
 }
 
 $('#btncalcular').on('click', function () {
@@ -468,7 +610,7 @@ function calcularPrecios() {
     subtotal = sumatotal - igv;
 
 
-    $("#txtsubtotal").val(subtotal.toFixed(2));
+   // $("#txtsubtotal").val(subtotal.toFixed(2)); //MODIFICADO 09/02 ok
     $("#txtigv").val(igv.toFixed(2));
     $("#txttotal").val(sumatotal.toFixed(2));
 }

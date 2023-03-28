@@ -491,6 +491,8 @@ $('#btnTerminarGuardarVenta').on('click', function () {
         "<ImporteRecibido>" + $("#txtmontopago").val() + "</ImporteRecibido>" +
         "<ImporteCambio>" + $("#txtcambio").val() + "</ImporteCambio>" +
         "<FechaRegistro>" + FechaRegistro.value + "</FechaRegistro>" +
+        "<idTiendaOrigen>" + $("#lbltiendaruc").val() + "</idTiendaOrigen>" +
+        "<idTiendaDestino>" + $("#lblempleadoapellido").val() + "</idTiendaDestino>" +
         "</VENTA >";
    
     DETALLE_OFICINA_DESTINO = "<DETALLE_OFICINA_DESTINO><DATOS>" +

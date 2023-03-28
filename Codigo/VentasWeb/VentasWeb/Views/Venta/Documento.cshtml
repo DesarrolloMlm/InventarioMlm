@@ -86,17 +86,26 @@
                                 <td colspan="5" style="border-bottom:1px solid #000"><span>@Html.DisplayTextFor(model => model.oCliente.Nombre)</span></td>
                             </tr>
                             <tr>
-                                <td colspan="1" style="width:50px !important">Direccion:</td>
-                                <td colspan="5" style="border-bottom:1px solid #000"><span>@Html.DisplayTextFor(model => model.oCliente.Direccion)</span></td>
+                                <td colspan="1" style="width:1px !important">Nro Documento:</td>
+                                <td colspan="1" style="border-bottom:1px solid #000"><span>@Html.DisplayTextFor(model => model.oCliente.NumeroDocumento)</span></td>
                             </tr>
                             <tr>
-                                <td style="width:50px">Nro.Documento:</td>
-                                <td style="border-bottom:1px solid #000"><span>@Html.DisplayTextFor(model => model.oCliente.NumeroDocumento)</span></td>
-                                <td style="width:50px"> Telefono:</td>
-                                <td style="border-bottom:1px solid #000"><span>@Html.DisplayTextFor(model => model.oCliente.Telefono)</span></td>
+                                <td style="width:50px"> Oficina Origen:</td>
+                                <td style="border-bottom:1px solid #000"><span>@Html.DisplayTextFor(model => model.tiendaOrigen)</span></td>
+                                <td style="width:50px">Oficina Destino:</td>
+                                <td style="border-bottom:1px solid #000"><span>@Html.DisplayTextFor(model => model.idTiendaDesino)</span></td>
+                            </tr>
+                            <tr>
+
+                               
+
+                               
+                            </tr>
+                            <tr>
                                 <td style="width:50px"> Fecha:</td>
                                 <td style="border-bottom:1px solid #000"><span>@Html.DisplayTextFor(model => model.FechaRegistro)</span></td>
                             </tr>
+
                         </table>
                     </td>
                 </tr>
@@ -112,8 +121,8 @@
                             <thead>
                                 <tr style="color:#fff;background-color:#17a2b8; -webkit-print-color-adjust: exact;">
                                     <th style="width: 15%;">Cantidad</th>
-                                    <th style="width: 45%;">Descripcion</th>
-                                    <th style="width: 20%;">Detalles</th>
+                                    <th style="width: 45%;">Equipamiento</th>
+                                   
                                 </tr>
                             </thead>
                             <tbody>

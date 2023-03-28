@@ -20,9 +20,13 @@ namespace CapaModelo
         public string FechaRegistro { get; set; }
         public DateTime VFechaRegistro { get; set; }
         public Usuario oUsuario { get; set; }
+
         public Tienda oTienda { get; set; }
+        
         public Cliente oCliente { get; set; }
         public List<DetalleVenta> oListaDetalleVenta { get; set; }
+        public String idTiendaDesino { get; set; }
+        public String tiendaOrigen { get; set; }
 
     }
 }

@@ -30,8 +30,8 @@ namespace VentasWeb.Controllers
 
             Venta oVenta = CD_Venta.Instancia.ObtenerDetalleVenta(IdVenta);
 
-
-
+            
+           
             NumberFormatInfo formato = new CultureInfo("es-PE").NumberFormat;
             formato.CurrencyGroupSeparator = ".";
 
@@ -44,6 +44,7 @@ namespace VentasWeb.Controllers
                                              select new DetalleVenta()
                                              {
                                                  Cantidad = dv.Cantidad,
+                                                
                                                  NombreProducto = dv.NombreProducto,
                                                  PrecioUnidad = dv.PrecioUnidad,
                                                  TextoPrecioUnidad = dv.PrecioUnidad.ToString("N", formato), //numero.ToString("C", formato)
@@ -54,13 +55,14 @@ namespace VentasWeb.Controllers
                 oVenta.TextoImporteRecibido = oVenta.ImporteRecibido.ToString("N", formato);
                 oVenta.TextoImporteCambio = oVenta.ImporteCambio.ToString("N", formato);
                 oVenta.TextoTotalCosto = oVenta.TotalCosto.ToString("N", formato);
+                
             }
                
 
             return View(oVenta);
         }
 
-
+        // NECESARIO PARA CONSULTAR TRASPASOS 
         public JsonResult Obtener(string codigo, string fechainicio, string fechafin, string numerodocumento, string nombres)
         {
             List<Venta> lista = CD_Venta.Instancia.ObtenerListaVenta(codigo, Convert.ToDateTime(fechainicio), Convert.ToDateTime(fechafin), numerodocumento, nombres);

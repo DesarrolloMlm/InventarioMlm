@@ -92,7 +92,9 @@ namespace CapaDatos
                                                        TotalCosto = float.Parse(dato.Element("TotalCosto").Value, NuevaCultura),
                                                        ImporteRecibido = float.Parse(dato.Element("ImporteRecibido").Value, NuevaCultura),
                                                        ImporteCambio = float.Parse(dato.Element("ImporteCambio").Value, NuevaCultura),
-                                                       FechaRegistro = dato.Element("FechaRegistro").Value
+                                                       FechaRegistro = dato.Element("FechaRegistro").Value,
+                                                       idTiendaDesino = dato.Element("idTiendaDestino").Value,
+                                                       tiendaOrigen = dato.Element("idTiendaOrigen").Value,
                                                    }).FirstOrDefault();
                                 rptDetalleVenta.oUsuario = (from dato in doc.Element("DETALLE_VENTA").Elements("DETALLE_USUARIO")
                                                             select new Usuario()
@@ -168,12 +170,18 @@ namespace CapaDatos
                         rptListaVenta.Add(new Venta()
                         {
                             IdVenta = Convert.ToInt32(dr["IdVenta"].ToString()),
-                            TipoDocumento = dr["TipoDocumento"].ToString(),
-                            Codigo = dr["Codigo"].ToString(),
+                            TipoDocumento = dr["NombreEquipamiento"].ToString(),
+                            Codigo = dr["Descripcion"].ToString(),
                             FechaRegistro = Convert.ToDateTime(dr["FechaRegistro"].ToString()).ToString("dd/MM/yyyy"),
                             VFechaRegistro = Convert.ToDateTime(dr["FechaRegistro"].ToString()),
                             oCliente = new Cliente() { NumeroDocumento = dr["NumeroDocumento"].ToString(), Nombre = dr["Nombre"].ToString() },
-                            TotalCosto = float.Parse(dr["TotalCosto"].ToString())
+                            oTienda = new Tienda() { IdTienda = Convert.ToInt32(dr["IdtiendaDestino"].ToString()), Nombre = dr["NombreDestino"].ToString() },
+                            TextoImporteCambio = dr["nombreOrigen"].ToString(),
+
+                            
+                            
+
+                            // TotalCosto = float.Parse(dr["TotalCosto"].ToString())
                         });
                     }
                     dr.Close();

@@ -16,3 +16,9 @@ C:\Codigo Git\InventarioMuni\Codigo\VentasWeb\CapaModelo\obj\Debug\CapaModelo.cs
 C:\Codigo Git\InventarioMuni\Codigo\VentasWeb\CapaModelo\obj\Debug\CapaModelo.dll
 C:\Codigo Git\InventarioMuni\Codigo\VentasWeb\CapaModelo\obj\Debug\CapaModelo.pdb
 C:\Codigo Git\InventarioMuni\Codigo\VentasWeb\CapaModelo\obj\Debug\CapaModelo.csprojAssemblyReference.cache
+C:\Codigo Git\InventarioMlm\Codigo\VentasWeb\CapaModelo\obj\Debug\CapaModelo.csprojAssemblyReference.cache
+C:\Codigo Git\InventarioMlm\Codigo\VentasWeb\CapaModelo\obj\Debug\CapaModelo.csproj.CoreCompileInputs.cache
+C:\Codigo Git\InventarioMlm\Codigo\VentasWeb\CapaModelo\obj\Debug\CapaModelo.dll
+C:\Codigo Git\InventarioMlm\Codigo\VentasWeb\CapaModelo\obj\Debug\CapaModelo.pdb
+C:\Codigo Git\InventarioMlm\Codigo\VentasWeb\CapaModelo\bin\Debug\CapaModelo.dll
+C:\Codigo Git\InventarioMlm\Codigo\VentasWeb\CapaModelo\bin\Debug\CapaModelo.pdb

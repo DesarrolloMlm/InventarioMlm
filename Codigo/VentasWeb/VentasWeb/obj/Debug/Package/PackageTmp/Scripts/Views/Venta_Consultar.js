@@ -26,7 +26,9 @@ $(document).ready(function () {
 
 
     $("#txtFechaInicio").datepicker();
+
     $("#txtFechaFin").datepicker();
+
     $("#txtFechaInicio").val(ObtenerFecha());
     $("#txtFechaFin").val(ObtenerFecha());
 
@@ -56,12 +58,11 @@ $(document).ready(function () {
                     return data.Nombre
                 }
             },
-                {
-                    "data": "TotalCosto", render: function (data) {
-
-                        return "S./ " + (data).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-                    }
-                },
+            /*  {
+                  "data": "TotalCosto", render: function (data) {
+                      return "S./ " + (data).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+                  }
+              },*/
 
 
         ],
@@ -87,7 +88,7 @@ function buscar() {
     }
 
     tabladata.ajax.url($.MisUrls.url._ObtenerVentas + "?" +
-        "codigo=" + $("#txtCodigoVenta").val().trim() +
+        //        "codigo=" + $("#txtCodigoVenta").val().trim() + PARA QUE PUEDA BUSCAR LOS TRASPASOS
         "&fechainicio=" + $("#txtFechaInicio").val().trim() +
         "&fechafin=" + $("#txtFechaFin").val().trim() +
         "&numerodocumento=" + $("#txtDocumentoCliente").val() +

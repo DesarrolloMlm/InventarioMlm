@@ -25,3 +25,12 @@ C:\Codigo Git\InventarioMuni\Codigo\VentasWeb\CapaDatos\obj\Debug\CapaDatos.cspr
 C:\Codigo Git\InventarioMuni\Codigo\VentasWeb\CapaDatos\obj\Debug\CapaDatos.csproj.CopyComplete
 C:\Codigo Git\InventarioMuni\Codigo\VentasWeb\CapaDatos\obj\Debug\CapaDatos.dll
 C:\Codigo Git\InventarioMuni\Codigo\VentasWeb\CapaDatos\obj\Debug\CapaDatos.pdb
+C:\Codigo Git\InventarioMlm\Codigo\VentasWeb\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Codigo Git\InventarioMlm\Codigo\VentasWeb\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Codigo Git\InventarioMlm\Codigo\VentasWeb\CapaDatos\bin\Debug\CapaModelo.dll
+C:\Codigo Git\InventarioMlm\Codigo\VentasWeb\CapaDatos\bin\Debug\CapaModelo.pdb
+C:\Codigo Git\InventarioMlm\Codigo\VentasWeb\CapaDatos\obj\Debug\CapaDatos.csprojAssemblyReference.cache
+C:\Codigo Git\InventarioMlm\Codigo\VentasWeb\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+C:\Codigo Git\InventarioMlm\Codigo\VentasWeb\CapaDatos\obj\Debug\CapaDatos.csproj.CopyComplete
+C:\Codigo Git\InventarioMlm\Codigo\VentasWeb\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Codigo Git\InventarioMlm\Codigo\VentasWeb\CapaDatos\obj\Debug\CapaDatos.pdb

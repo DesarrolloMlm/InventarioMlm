@@ -26,9 +26,9 @@ $(document).ready(function () {
 
 
     $("#txtFechaInicio").datepicker();
-    
+
     $("#txtFechaFin").datepicker();
-    
+
     $("#txtFechaInicio").val(ObtenerFecha());
     $("#txtFechaFin").val(ObtenerFecha());
 
@@ -50,20 +50,21 @@ $(document).ready(function () {
             { "data": "FechaRegistro" },
             {
                 "data": "oCliente", render: function (data) {
-                    return data.NumeroDocumento
-                }
-            },
-            {
-                "data": "oCliente", render: function (data) {
                     return data.Nombre
                 }
             },
-              /*  {
-                    "data": "TotalCosto", render: function (data) {
-
-                        return "S./ " + (data).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-                    }
-                },*/
+            { "data": "TextoImporteCambio" }, //of origen
+            {
+                "data": "oTienda", render: function (data) {
+                    return data.Nombre
+                } // OF DESTINO
+            },
+            
+            /*  {
+                  "data": "TotalCosto", render: function (data) {
+                      return "S./ " + (data).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+                  }
+              },*/
 
 
         ],
@@ -89,7 +90,7 @@ function buscar() {
     }
 
     tabladata.ajax.url($.MisUrls.url._ObtenerVentas + "?" +
-//        "codigo=" + $("#txtCodigoVenta").val().trim() + PARA QUE PUEDA BUSCAR LOS TRASPASOS
+        //        "codigo=" + $("#txtCodigoVenta").val().trim() + PARA QUE PUEDA BUSCAR LOS TRASPASOS
         "&fechainicio=" + $("#txtFechaInicio").val().trim() +
         "&fechafin=" + $("#txtFechaFin").val().trim() +
         "&numerodocumento=" + $("#txtDocumentoCliente").val() +

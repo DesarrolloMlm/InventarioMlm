@@ -7,3 +7,12 @@ C:\Users\Gonza\Desktop\VentasWeb\CapaDatos\obj\Release\CapaDatos.csproj.CoreComp
 C:\Users\Gonza\Desktop\VentasWeb\CapaDatos\obj\Release\CapaDatos.csproj.CopyComplete
 C:\Users\Gonza\Desktop\VentasWeb\CapaDatos\obj\Release\CapaDatos.dll
 C:\Users\Gonza\Desktop\VentasWeb\CapaDatos\obj\Release\CapaDatos.pdb
+C:\Codigo Git\InventarioMlm\Codigo\VentasWeb\CapaDatos\bin\Release\CapaDatos.dll
+C:\Codigo Git\InventarioMlm\Codigo\VentasWeb\CapaDatos\bin\Release\CapaDatos.pdb
+C:\Codigo Git\InventarioMlm\Codigo\VentasWeb\CapaDatos\bin\Release\CapaModelo.dll
+C:\Codigo Git\InventarioMlm\Codigo\VentasWeb\CapaDatos\bin\Release\CapaModelo.pdb
+C:\Codigo Git\InventarioMlm\Codigo\VentasWeb\CapaDatos\obj\Release\CapaDatos.csprojAssemblyReference.cache
+C:\Codigo Git\InventarioMlm\Codigo\VentasWeb\CapaDatos\obj\Release\CapaDatos.csproj.CoreCompileInputs.cache
+C:\Codigo Git\InventarioMlm\Codigo\VentasWeb\CapaDatos\obj\Release\CapaDatos.csproj.CopyComplete
+C:\Codigo Git\InventarioMlm\Codigo\VentasWeb\CapaDatos\obj\Release\CapaDatos.dll
+C:\Codigo Git\InventarioMlm\Codigo\VentasWeb\CapaDatos\obj\Release\CapaDatos.pdb

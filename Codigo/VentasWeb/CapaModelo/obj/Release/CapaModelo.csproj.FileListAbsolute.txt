@@ -4,3 +4,9 @@ C:\Users\Gonza\Desktop\VentasWeb\CapaModelo\obj\Release\CapaModelo.csprojAssembl
 C:\Users\Gonza\Desktop\VentasWeb\CapaModelo\obj\Release\CapaModelo.csproj.CoreCompileInputs.cache
 C:\Users\Gonza\Desktop\VentasWeb\CapaModelo\obj\Release\CapaModelo.dll
 C:\Users\Gonza\Desktop\VentasWeb\CapaModelo\obj\Release\CapaModelo.pdb
+C:\Codigo Git\InventarioMlm\Codigo\VentasWeb\CapaModelo\bin\Release\CapaModelo.dll
+C:\Codigo Git\InventarioMlm\Codigo\VentasWeb\CapaModelo\bin\Release\CapaModelo.pdb
+C:\Codigo Git\InventarioMlm\Codigo\VentasWeb\CapaModelo\obj\Release\CapaModelo.csprojAssemblyReference.cache
+C:\Codigo Git\InventarioMlm\Codigo\VentasWeb\CapaModelo\obj\Release\CapaModelo.csproj.CoreCompileInputs.cache
+C:\Codigo Git\InventarioMlm\Codigo\VentasWeb\CapaModelo\obj\Release\CapaModelo.dll
+C:\Codigo Git\InventarioMlm\Codigo\VentasWeb\CapaModelo\obj\Release\CapaModelo.pdb
